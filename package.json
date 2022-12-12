@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "create:ui": "/bin/bash ./scripts/create-page.sh",
     "fast:push": "git add . && git commit -m \"update project\" && git push"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
+    "prettier": "2.8.1",
     "typescript": "4.9.4"
   }
 }
