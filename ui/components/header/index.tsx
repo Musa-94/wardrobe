@@ -5,9 +5,5 @@ import Link from 'next/link'
 export const Header = () => {
     const {} = useHeader()
 
-    return (
-        <WrapperHeader>
-            <Link href="/wardrobe">Wardrobe</Link>
-        </WrapperHeader>
-    )
+    return <WrapperHeader>Wardrobe</WrapperHeader>
 }
