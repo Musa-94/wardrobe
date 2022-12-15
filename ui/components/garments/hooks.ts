@@ -4,7 +4,7 @@ import { WardrobeType } from '@/stores/wardrobe/types'
 
 export const useGarments = () => {
     const variants = {
-        init: { scale: 1.5 },
+        init: { scale: 0 },
         done: { scale: 1 },
     }
 

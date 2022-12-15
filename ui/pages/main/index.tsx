@@ -1,12 +1,8 @@
 import { useMain } from './hooks'
-import { Garments, Layout } from '../../components'
+import { Garments } from '../../components'
 
 export const Main = () => {
     const {} = useMain()
 
-    return (
-        <Layout>
-            <Garments />
-        </Layout>
-    )
+    return <Garments />
 }

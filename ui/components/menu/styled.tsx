@@ -13,10 +13,11 @@ export const MenuItem = styled.li<{ active: boolean }>`
     align-items: center;
     text-transform: capitalize;
 
-    color: ${({ active }) => (active ? 'white' : 'black')};
+    color: ${({ active, theme }) =>
+        active ? theme.common.colorFontsActive : theme.common.colorFonts};
 
     &:hover {
-        color: white;
+        color: ${({ theme }) => theme.common.colorFontsActive};
     }
 `
 export const LabelFileInput = styled.label`
