@@ -9,6 +9,7 @@
     "lint": "next lint",
     "create:ui": "/bin/bash scripts/create-ui.sh",
     "create:store": "/bin/bash scripts/create-store.sh",
+    "prefast:push": "yarn build",
     "fast:push": "git add . && git commit -m \"update project\" && git push"
   },
   "dependencies": {

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 export const WrapperGarments = styled.div`
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
