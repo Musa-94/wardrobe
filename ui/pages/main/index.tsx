@@ -1,36 +1,12 @@
 import { useMain } from './hooks'
-import { Layout } from '../../components'
-
-import { GarmentsBlock, GarmentsImage, WrapperMain } from './styled'
+import { Garments, Layout } from '../../components'
 
 export const Main = () => {
-    const { wardrobeList } = useMain()
-    const variants = {
-        init: { scale: 1.5 },
-        done: { scale: 1 },
-    }
+    const {} = useMain()
 
     return (
         <Layout>
-            <WrapperMain>
-                {wardrobeList.map((item) =>
-                    item.data.image ? (
-                        <GarmentsBlock
-                            variants={variants}
-                            key={item.position}
-                            initial="init"
-                            whileInView="done"
-                        >
-                            <GarmentsImage
-                                src={item.data.image}
-                                alt={item.data.name}
-                                fill
-                                sizes="100vw"
-                            />
-                        </GarmentsBlock>
-                    ) : null
-                )}
-            </WrapperMain>
+            <Garments />
         </Layout>
     )
 }
