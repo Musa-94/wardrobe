@@ -1,1 +1,1 @@
-export * from './wardrobe'
+export * from './main'

@@ -7,13 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create:ui": "/bin/bash ./scripts/create-page.sh",
+    "create:ui": "/bin/bash scripts/create-ui.sh",
+    "create:store": "/bin/bash scripts/create-store.sh",
     "fast:push": "git add . && git commit -m \"update project\" && git push"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
+    "antd-mobile": "^5.27.0",
     "next": "13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "^8.0.5",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
