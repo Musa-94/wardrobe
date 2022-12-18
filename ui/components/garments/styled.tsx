@@ -5,7 +5,7 @@ import { CloseOutline } from 'antd-mobile-icons'
 import { motion } from 'framer-motion'
 
 export const WrapperGarments = styled.div`
-    height: 100%;
+    height: calc(100vh - 50px);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -14,6 +14,7 @@ export const WrapperGarments = styled.div`
     border: 10px solid white;
     border-radius: 20px;
     background: ${({ theme }) => theme.common.backgroundNav};
+    overflow-y: auto;
 `
 
 export const GarmentsBlock = styled(motion.div)`
