@@ -10,9 +10,9 @@ export const Garments = () => {
                 item.data.image ? (
                     <GarmentsBlock
                         key={item.position}
-                        initial="init"
-                        variants={variants}
-                        whileInView="done"
+                        initial={variants.init}
+                        animate={variants.animate}
+                        transition={variants.transition}
                     >
                         <GarmentsImage
                             src={item.data.image}

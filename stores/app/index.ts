@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface IAppState {
     activeMenu: string
+    isOpenSidebar: boolean
 }
 
 const initialState: IAppState = {
     activeMenu: '',
+    isOpenSidebar: false,
 }
 
 const appSlice = createSlice({
@@ -14,6 +16,9 @@ const appSlice = createSlice({
     reducers: {
         setActiveMenu: (state, action: PayloadAction<string>) => {
             state.activeMenu = action.payload
+        },
+        toggleSidebar: (state) => {
+            state.isOpenSidebar = !state.isOpenSidebar
         },
     },
 })

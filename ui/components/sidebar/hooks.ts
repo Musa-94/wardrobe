@@ -1,14 +1,23 @@
-import { useState } from 'react'
+import { appActions } from '@/stores/app'
+import { useDispatch } from 'react-redux'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+
+const variants = {
+    open: { width: '100px' },
+    close: { width: '50px' },
+}
 
 export const useSidebar = () => {
-    const [open, setOpen] = useState<boolean>(false)
+    const dispatch = useDispatch()
+    const open = useTypedSelector((state) => state.app.isOpenSidebar)
 
     const toggle = () => {
-        setOpen((prevState) => !prevState)
+        dispatch(appActions.toggleSidebar())
     }
 
     return {
         open,
         toggle,
+        variants,
     }
 }

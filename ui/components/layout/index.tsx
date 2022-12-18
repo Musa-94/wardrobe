@@ -9,12 +9,15 @@ interface ILayout {
 }
 
 export const Layout: FC<ILayout> = ({ children }) => {
-    const {} = useLayout()
+    const { variants, open } = useLayout()
 
     return (
         <WrapperLayout>
             <Header />
-            <LayoutContent>
+            <LayoutContent
+                animate={open ? 'open' : 'close'}
+                variants={variants}
+            >
                 <Sidebar />
                 {children}
             </LayoutContent>

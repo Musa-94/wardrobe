@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { motion } from 'framer-motion'
 
 export const GlobalStyled = createGlobalStyle`
   *, html, body {
@@ -25,10 +26,10 @@ export const WrapperLayout = styled.main`
     height: 100vh;
 `
 
-export const LayoutContent = styled.div`
+export const LayoutContent = styled(motion.div)`
     height: 100%;
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 50px 1fr;
     grid-template-rows: 1fr;
     background-color: ${({ theme }) => theme.common.backgroundLayout};
 `
