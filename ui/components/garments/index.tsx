@@ -1,8 +1,13 @@
 import { useGarments } from './hooks'
-import { GarmentsBlock, GarmentsImage, WrapperGarments } from './styled'
+import {
+    GarmentsBlock,
+    GarmentsClose,
+    GarmentsImage,
+    WrapperGarments,
+} from './styled'
 
 export const Garments = () => {
-    const { variants, wardrobeList } = useGarments()
+    const { variants, wardrobeList, onDelete } = useGarments()
 
     return (
         <WrapperGarments>
@@ -19,6 +24,9 @@ export const Garments = () => {
                             alt={item.data.name}
                             fill
                             sizes="100vw"
+                        />
+                        <GarmentsClose
+                            onClick={() => onDelete(item.position)}
                         />
                     </GarmentsBlock>
                 ) : null

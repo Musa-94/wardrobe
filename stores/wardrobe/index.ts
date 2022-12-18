@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IWardrobeContent, SetWardrobeContent } from './types'
+import { IWardrobeContent, SetWardrobeContent, WardrobeType } from './types'
 
 export interface IWardrobeState {
     top: IWardrobeContent
@@ -33,6 +33,11 @@ const wardrobeSlice = createSlice({
                 image,
                 name,
             }
+        },
+        delete: (state, action: PayloadAction<WardrobeType>) => {
+            const wardrobeType = action.payload
+
+            state[wardrobeType] = wardrobeContent
         },
     },
 })
