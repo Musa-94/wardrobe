@@ -11,6 +11,9 @@ export const WrapperGarments = styled.div`
     flex-direction: column;
     align-items: center;
     padding-top: 15px;
+    border: 10px solid white;
+    border-radius: 20px;
+    background: ${({ theme }) => theme.common.backgroundNav};
 `
 
 export const GarmentsBlock = styled(motion.div)`
@@ -21,20 +24,19 @@ export const GarmentsBlock = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-
-    border: 1px solid grey;
     justify-content: space-between;
 `
 
 export const GarmentsImage = styled(Image)`
     object-fit: cover;
-    size: auto;
+    border-radius: 20px;
 `
 
 export const GarmentsClose = styled(CloseOutline)`
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: -15px;
+    right: -15px;
+
     &:hover {
         color: white;
     }

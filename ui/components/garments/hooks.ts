@@ -2,7 +2,6 @@ import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useMemo } from 'react'
 import { WardrobeType } from '@/stores/wardrobe/types'
 import { useDispatch } from 'react-redux'
-import { a } from '@react-spring/web'
 import { wardrobeActions } from '@/stores/wardrobe'
 
 const variants = {
@@ -20,6 +19,7 @@ const variants = {
             restDelta: 0.001,
         },
     },
+    exit: { opacity: 0, scale: 0.5 },
 }
 
 export const useGarments = () => {

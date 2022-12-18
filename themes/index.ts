@@ -1,9 +1,10 @@
 export const themes = {
     common: {
-        colorFonts: '#e7a729',
+        colorFonts: '#909090',
+        colorFontsLogo: '#000000',
         colorFontsActive: 'white',
-        backgroundNav: '#a726e7',
-        backgroundLayout: '#e7a729',
+        backgroundNav: '#DEEBFB',
+        backgroundLayout: 'white',
     },
 }
 
