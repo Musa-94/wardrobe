@@ -2,24 +2,21 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IWardrobeContent, SetWardrobeContent, WardrobeType } from './types'
 
 export interface IWardrobeState {
-    top: IWardrobeContent
-    tors: IWardrobeContent
-    middle: IWardrobeContent
-    footer: IWardrobeContent
-    accessories: IWardrobeContent
-}
-
-const wardrobeContent = {
-    name: '',
-    image: '',
+    top: IWardrobeContent[]
+    tors: IWardrobeContent[]
+    middle: IWardrobeContent[]
+    footer: IWardrobeContent[]
+    accessories: IWardrobeContent[]
+    temps: IWardrobeContent[]
 }
 
 const initialState: IWardrobeState = {
-    accessories: { ...wardrobeContent },
-    top: { ...wardrobeContent },
-    tors: { ...wardrobeContent },
-    middle: { ...wardrobeContent },
-    footer: { ...wardrobeContent },
+    accessories: [],
+    top: [],
+    tors: [],
+    middle: [],
+    footer: [],
+    temps: [],
 }
 
 const wardrobeSlice = createSlice({
@@ -27,17 +24,18 @@ const wardrobeSlice = createSlice({
     initialState,
     reducers: {
         setWardrobeData: (state, action: PayloadAction<SetWardrobeContent>) => {
-            const { wardrobeType, image, name } = action.payload
+            const { wardrobeType, image, name, id } = action.payload
 
-            state[wardrobeType] = {
+            state[wardrobeType].push({
                 image,
                 name,
-            }
+                id,
+            })
         },
         delete: (state, action: PayloadAction<WardrobeType>) => {
             const wardrobeType = action.payload
 
-            state[wardrobeType] = wardrobeContent
+            state[wardrobeType] = []
         },
     },
 })

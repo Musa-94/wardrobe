@@ -2,7 +2,8 @@ import { useLayout } from './hooks'
 import { GlobalStyled, LayoutContent, WrapperLayout } from './styled'
 import { Header } from '../header'
 import { FC, ReactNode } from 'react'
-import { Sidebar } from '../sidebar'
+import { BottomNavigation } from '@/components/bottom-navigation'
+import { Modals } from '@/components/modals/modals'
 
 interface ILayout {
     children?: ReactNode
@@ -14,14 +15,13 @@ export const Layout: FC<ILayout> = ({ children }) => {
     return (
         <WrapperLayout>
             <Header />
-            <LayoutContent
-                animate={open ? 'open' : 'close'}
-                variants={variants}
-            >
-                <Sidebar />
+            <LayoutContent>
+                {/*<Sidebar />*/}
                 {children}
+                <BottomNavigation />
             </LayoutContent>
             <GlobalStyled />
+            <Modals />
         </WrapperLayout>
     )
 }

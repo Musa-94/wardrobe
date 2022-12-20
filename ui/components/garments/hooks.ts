@@ -33,9 +33,7 @@ export const useGarments = () => {
 
         return list.map((key) => ({
             position: key,
-            data: {
-                ...wardrobe[key],
-            },
+            data: wardrobe[key] && wardrobe[key][0],
         }))
     }, [wardrobe])
 

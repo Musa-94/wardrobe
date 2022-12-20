@@ -14,7 +14,7 @@ export const Garments = () => {
         <WrapperGarments>
             <AnimatePresence>
                 {wardrobeList.map((item) =>
-                    item.data.image ? (
+                    item.data?.image ? (
                         <GarmentsBlock
                             key={item.position}
                             initial={variants.init}

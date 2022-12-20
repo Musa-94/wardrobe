@@ -28,8 +28,5 @@ export const WrapperLayout = styled.main`
 
 export const LayoutContent = styled(motion.div)`
     height: 100%;
-    display: grid;
-    grid-template-columns: 50px 1fr;
-    grid-template-rows: 1fr;
     background-color: ${({ theme }) => theme.common.backgroundLayout};
 `

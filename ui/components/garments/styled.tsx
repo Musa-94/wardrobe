@@ -5,7 +5,7 @@ import { CloseOutline } from 'antd-mobile-icons'
 import { motion } from 'framer-motion'
 
 export const WrapperGarments = styled.div`
-    height: calc(100vh - 50px);
+    height: calc(100vh - 100px);
     width: 100%;
     display: flex;
     flex-direction: column;
