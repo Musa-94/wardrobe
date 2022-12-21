@@ -1,8 +1,17 @@
 import { useHeader } from './hooks'
-import { WrapperHeader } from './styled'
+import { CollectionComplete, HeaderLogo, WrapperHeader } from './styled'
 
 export const Header = () => {
-    const {} = useHeader()
+    const { collectionComplete, onSaveCollection } = useHeader()
 
-    return <WrapperHeader>Wardrobe</WrapperHeader>
+    return (
+        <WrapperHeader>
+            <HeaderLogo>Wardrobe</HeaderLogo>
+            {collectionComplete ? (
+                <CollectionComplete color="#00cf00" onClick={onSaveCollection}>
+                    save collection
+                </CollectionComplete>
+            ) : null}
+        </WrapperHeader>
+    )
 }

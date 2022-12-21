@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 import { WardrobeType } from '@/stores/wardrobe/types'
 import { useDispatch } from 'react-redux'
 import { wardrobeActions } from '@/stores/wardrobe'
+import { config } from '@/config/index'
 
 const variants = {
     init: { opacity: 0, scale: 0.5 },
@@ -22,18 +23,18 @@ const variants = {
 export const useGarments = () => {
     const dispatch = useDispatch()
 
-    const onDelete = (wardrobeType: WardrobeType) => {
-        dispatch(wardrobeActions.delete(wardrobeType))
+    const onDelete = (position: WardrobeType, id: number) => {
+        dispatch(wardrobeActions.delete({ position, id }))
     }
 
     const wardrobe = useTypedSelector((state) => state.wardrobe)
 
     const wardrobeList = useMemo(() => {
-        const list = Object.keys(wardrobe) as WardrobeType[]
+        const list = config.wardrobeSections as WardrobeType[]
 
         return list.map((key) => ({
             position: key,
-            data: wardrobe[key] && wardrobe[key][0],
+            data: wardrobe[key],
         }))
     }, [wardrobe])
 

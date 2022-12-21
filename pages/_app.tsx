@@ -4,6 +4,7 @@ import { store } from '../stores'
 import { Layout } from '@/components/layout'
 import { ThemeProvider } from 'styled-components'
 import { Themes, themes } from '../themes'
+import 'antd/dist/reset.css'
 
 export default function App({ Component, pageProps }: AppProps) {
     return (

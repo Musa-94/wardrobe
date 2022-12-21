@@ -1,22 +1,21 @@
 export const config = {
-    sidebar: {
-        menu: [
-            {
-                name: 'top',
-                label: 'шапка',
-            },
-            {
-                name: 'tors',
-                label: 'куртка',
-            },
-            {
-                name: 'middle',
-                label: 'брюки',
-            },
-            {
-                name: 'footer',
-                label: 'обувь',
-            },
-        ],
-    },
+    wardrobeOptions: [
+        {
+            value: 'top',
+            label: 'шапка',
+        },
+        {
+            value: 'tors',
+            label: 'куртка',
+        },
+        {
+            value: 'middle',
+            label: 'брюки',
+        },
+        {
+            value: 'footer',
+            label: 'обувь',
+        },
+    ],
+    wardrobeSections: ['top', 'tors', 'middle', 'footer'],
 }

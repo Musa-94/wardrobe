@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IWardrobeContent, SetWardrobeContent, WardrobeType } from './types'
+import { webStorage } from '@/utils/web-storage/web-storage'
+import { WebStorage } from '@/constants/web-storage/web-storage'
 
 export interface IWardrobeState {
     top: IWardrobeContent[]
@@ -8,6 +10,7 @@ export interface IWardrobeState {
     footer: IWardrobeContent[]
     accessories: IWardrobeContent[]
     temps: IWardrobeContent[]
+    collections: [IWardrobeContent[]]
 }
 
 const initialState: IWardrobeState = {
@@ -17,6 +20,9 @@ const initialState: IWardrobeState = {
     middle: [],
     footer: [],
     temps: [],
+    collections: webStorage.getLocalStorage<[IWardrobeContent[]]>(
+        WebStorage.COLLECTIONS
+    ) || [[]],
 }
 
 const wardrobeSlice = createSlice({
@@ -26,16 +32,32 @@ const wardrobeSlice = createSlice({
         setWardrobeData: (state, action: PayloadAction<SetWardrobeContent>) => {
             const { wardrobeType, image, name, id } = action.payload
 
-            state[wardrobeType].push({
-                image,
-                name,
-                id,
-            })
+            state[wardrobeType] = [
+                {
+                    image,
+                    name,
+                    id,
+                },
+            ]
         },
-        delete: (state, action: PayloadAction<WardrobeType>) => {
-            const wardrobeType = action.payload
+        saveCollections: (state, action: PayloadAction<IWardrobeContent[]>) => {
+            const [collection] = state.collections
 
-            state[wardrobeType] = []
+            if (!collection.length) {
+                state.collections = [action.payload]
+
+                return
+            }
+
+            state.collections.push(action.payload)
+        },
+        delete: (
+            state,
+            action: PayloadAction<{ position: WardrobeType; id: number }>
+        ) => {
+            const { position, id } = action.payload
+
+            state[position] = state[position].filter((item) => item.id !== id)
         },
     },
 })

@@ -1,12 +1,13 @@
 import { useBottomNavigation } from './hooks'
 import {
     AddDress,
+    HiddenInputFile,
+    LabelHiddenInput,
     PlusVerticalLine,
     PlusHorizonteLine,
     AddButtonPlusContainer,
     WrapperBottomNavigation,
-    HiddenInputFile,
-    LabelHiddenInput,
+    SavedCollections,
 } from './styled'
 
 const variants = {
@@ -20,12 +21,8 @@ export const BottomNavigation = () => {
 
     return (
         <WrapperBottomNavigation>
-            <LabelHiddenInput
-                htmlFor="fileLoad"
-                onClick={() => {
-                    console.log('CLICK')
-                }}
-            >
+            <SavedCollections fontSize={36} />
+            <LabelHiddenInput htmlFor="fileLoad">
                 <HiddenInputFile
                     id="fileLoad"
                     type="file"

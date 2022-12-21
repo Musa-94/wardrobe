@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
+import { StarFill } from 'antd-mobile-icons'
 
 export const WrapperBottomNavigation = styled.nav`
     position: absolute;
@@ -8,6 +9,10 @@ export const WrapperBottomNavigation = styled.nav`
     right: 0;
     height: 50px;
     background: ${({ theme }) => theme.common.backgroundNav};
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
 `
 
 export const AddDress = styled(motion.div)`
@@ -51,4 +56,22 @@ export const LabelHiddenInput = styled.label`
 export const HiddenInputFile = styled.input`
     display: none;
     visibility: hidden;
+`
+
+export const SavedCollections = styled(StarFill)`
+    scale: 1;
+
+    path {
+        fill: #ff5454 !important;
+    }
+
+    &:hover {
+        scale: 1.2;
+    }
+
+    &:active {
+        scale: 0.95;
+    }
+
+    transition: scale 0.3s ease-out;
 `

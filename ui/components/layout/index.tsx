@@ -16,7 +16,6 @@ export const Layout: FC<ILayout> = ({ children }) => {
         <WrapperLayout>
             <Header />
             <LayoutContent>
-                {/*<Sidebar />*/}
                 {children}
                 <BottomNavigation />
             </LayoutContent>

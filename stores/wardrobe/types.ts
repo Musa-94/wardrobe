@@ -1,6 +1,4 @@
-import { IWardrobeState } from './index'
-
-export type WardrobeType = keyof IWardrobeState
+export type WardrobeType = 'top' | 'tors' | 'middle' | 'footer' | 'temps'
 
 export interface SetWardrobeContent {
     wardrobeType: WardrobeType

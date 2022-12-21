@@ -1,18 +1,46 @@
-import { usePreview } from '@/components/modals/preview/hooks'
+import { useHandleSelect, usePreview } from '@/components/modals/preview/hooks'
 import { Modal } from '@/components/modals/modal'
+import Image from 'next/image'
+import { PreviewContent, SelectAntd } from '@/components/modals/preview/styled'
 
 export const Preview = () => {
-    const { open, onClose } = usePreview()
+    const { open, onClose, imageData } = usePreview()
+    const { options, onSelect, onSave, select } = useHandleSelect(
+        imageData?.image
+    )
 
     return (
         <Modal
             open={open}
             title="Preview"
-            onClose={onClose}
+            okText="Save"
+            centered
             onCancel={onClose}
-            onConfirm={onClose}
+            onConfirm={onSave}
+            cancelText="Cancel"
         >
-            Content
+            <PreviewContent>
+                {imageData?.image ? (
+                    <>
+                        <Image
+                            key={imageData.id}
+                            src={imageData.image}
+                            alt={imageData.name}
+                            width={150}
+                            height={150}
+                        />
+                        <div>
+                            <span>{imageData.name}</span>
+                        </div>
+                    </>
+                ) : null}
+                <SelectAntd
+                    options={options}
+                    defaultValue={select}
+                    // @ts-ignore
+                    onChange={onSelect}
+                />
+            </PreviewContent>
         </Modal>
     )
 }

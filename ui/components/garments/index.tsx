@@ -13,26 +13,30 @@ export const Garments = () => {
     return (
         <WrapperGarments>
             <AnimatePresence>
-                {wardrobeList.map((item) =>
-                    item.data?.image ? (
-                        <GarmentsBlock
-                            key={item.position}
-                            initial={variants.init}
-                            animate={variants.animate}
-                            transition={variants.transition}
-                            exit={variants.exit}
-                        >
-                            <GarmentsImage
-                                src={item.data.image}
-                                alt={item.data.name}
-                                fill
-                                sizes="100vw"
-                            />
-                            <GarmentsClose
-                                onClick={() => onDelete(item.position)}
-                            />
-                        </GarmentsBlock>
-                    ) : null
+                {wardrobeList.map((list) =>
+                    list.data.map((item) =>
+                        item.image ? (
+                            <GarmentsBlock
+                                key={item.id}
+                                initial={variants.init}
+                                animate={variants.animate}
+                                transition={variants.transition}
+                                exit={variants.exit}
+                            >
+                                <GarmentsImage
+                                    src={item.image}
+                                    alt={item.name}
+                                    fill
+                                    sizes="100vw"
+                                />
+                                <GarmentsClose
+                                    onClick={() =>
+                                        onDelete(list.position, item.id)
+                                    }
+                                />
+                            </GarmentsBlock>
+                        ) : null
+                    )
                 )}
             </AnimatePresence>
         </WrapperGarments>
