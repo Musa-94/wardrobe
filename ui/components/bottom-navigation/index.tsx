@@ -25,11 +25,11 @@ export const BottomNavigation = () => {
     return (
         <WrapperBottomNavigation>
             <LeftBlockLinks>
-                <NavLink href="/collections">
-                    <SavedCollections fontSize={36} />
-                </NavLink>
                 <NavLink href="/settings">
                     <Settings fontSize={40} />
+                </NavLink>
+                <NavLink href="/collections">
+                    <SavedCollections fontSize={36} />
                 </NavLink>
             </LeftBlockLinks>
 

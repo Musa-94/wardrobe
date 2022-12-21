@@ -10,7 +10,6 @@ export const WrapperGarments = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 15px;
     border: 10px solid white;
     border-radius: 20px;
     background: ${({ theme }) => theme.common.backgroundNav};

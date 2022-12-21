@@ -1,3 +1,9 @@
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+
 export const useCollections = () => {
-    return {}
+    const collections = useTypedSelector((state) => state.wardrobe.collections)
+
+    return {
+        collections,
+    }
 }

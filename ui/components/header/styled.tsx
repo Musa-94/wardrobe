@@ -17,6 +17,7 @@ export const HeaderLink = styled(Link)`
 export const HeaderLogo = styled.span`
     color: ${({ theme }) => theme.common.colorFontsLogo};
     font-size: 24px;
+    text-transform: capitalize;
 `
 export const CollectionComplete = styled(Button)`
     text-transform: capitalize;

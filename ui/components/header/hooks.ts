@@ -1,10 +1,11 @@
 import { useTypedSelector } from '@/hooks/useTypedSelector'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { webStorage } from '@/utils/web-storage/web-storage'
 import { WebStorage } from '@/constants/web-storage/web-storage'
 import { useDispatch } from 'react-redux'
 import { wardrobeActions } from '@/stores/wardrobe'
 import { useRouter } from 'next/router'
+import { IWardrobeContent } from '@/stores/wardrobe/types'
 
 export const useHeader = () => {
     const dispatch = useDispatch()
@@ -34,10 +35,17 @@ export const useHeader = () => {
 
     const onSaveCollection = () => {
         if (collection.length < 4) return
+        const collectionsFromLS = webStorage.getLocalStorage<
+            [IWardrobeContent[]]
+        >(WebStorage.COLLECTIONS)
 
         webStorage.setLocalStorage(
             WebStorage.COLLECTIONS,
-            JSON.stringify(collection)
+            JSON.stringify(
+                collectionsFromLS?.length
+                    ? [...collectionsFromLS, collection]
+                    : [collection]
+            )
         )
 
         dispatch(wardrobeActions.saveCollections(collection))
