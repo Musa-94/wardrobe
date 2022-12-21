@@ -1,13 +1,16 @@
 import { useBottomNavigation } from './hooks'
 import {
+    NavLink,
     AddDress,
     HiddenInputFile,
+    SavedCollections,
     LabelHiddenInput,
     PlusVerticalLine,
     PlusHorizonteLine,
     AddButtonPlusContainer,
     WrapperBottomNavigation,
-    SavedCollections,
+    Settings,
+    LeftBlockLinks,
 } from './styled'
 
 const variants = {
@@ -21,7 +24,15 @@ export const BottomNavigation = () => {
 
     return (
         <WrapperBottomNavigation>
-            <SavedCollections fontSize={36} />
+            <LeftBlockLinks>
+                <NavLink href="/collections">
+                    <SavedCollections fontSize={36} />
+                </NavLink>
+                <NavLink href="/settings">
+                    <Settings fontSize={40} />
+                </NavLink>
+            </LeftBlockLinks>
+
             <LabelHiddenInput htmlFor="fileLoad">
                 <HiddenInputFile
                     id="fileLoad"

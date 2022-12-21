@@ -1,3 +1,3 @@
-export const usePage = () => {
+export const useSettings = () => {
     return {}
 }

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
-import { StarFill } from 'antd-mobile-icons'
+import { MoreOutline, StarFill } from 'antd-mobile-icons'
+import Link from 'next/link'
 
 export const WrapperBottomNavigation = styled.nav`
     position: absolute;
@@ -58,7 +59,7 @@ export const HiddenInputFile = styled.input`
     visibility: hidden;
 `
 
-export const SavedCollections = styled(StarFill)`
+const svgStyled = css`
     scale: 1;
 
     path {
@@ -75,3 +76,20 @@ export const SavedCollections = styled(StarFill)`
 
     transition: scale 0.3s ease-out;
 `
+
+export const LeftBlockLinks = styled.div`
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`
+
+export const SavedCollections = styled(StarFill)`
+    ${svgStyled};
+`
+
+export const Settings = styled(MoreOutline)`
+    ${svgStyled};
+`
+
+export const NavLink = styled(Link)``

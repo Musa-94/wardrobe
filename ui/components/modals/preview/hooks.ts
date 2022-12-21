@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { wardrobeActions } from '@/stores/wardrobe'
 import { WardrobeType } from '@/stores/wardrobe/types'
 import { config } from '@/config/index'
+import { useRouter } from 'next/router'
 
 export const usePreview = () => {
     const dispatch = useDispatch()
@@ -25,6 +26,7 @@ export const usePreview = () => {
 }
 
 export const useHandleSelect = (image: string = '') => {
+    const router = useRouter()
     const dispatch = useDispatch()
     const [select, setSelect] = useState<string>('')
 
@@ -43,6 +45,10 @@ export const useHandleSelect = (image: string = '') => {
         )
 
         dispatch(modalsActions.closeModal(ModalName.PREVIEW))
+
+        if (router.pathname !== '/') {
+            router.replace('/')
+        }
     }
 
     return {

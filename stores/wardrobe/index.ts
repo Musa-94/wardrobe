@@ -59,6 +59,12 @@ const wardrobeSlice = createSlice({
 
             state[position] = state[position].filter((item) => item.id !== id)
         },
+        clearSelectedCollection: (state) => {
+            state.top = []
+            state.tors = []
+            state.middle = []
+            state.footer = []
+        },
     },
 })
 

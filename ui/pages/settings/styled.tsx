@@ -1,3 +1,3 @@
 import styled from 'styled-components'
 
-export const WrapperPage = styled.main``
+export const WrapperSettings = styled.main``

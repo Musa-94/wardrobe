@@ -1,8 +1,8 @@
-import { usePage } from './hooks'
-import { WrapperPage } from './styled'
+import { useSettings } from './hooks'
+import { WrapperSettings } from './styled'
 
-export const Page = () => {
-    const {} = usePage()
+export const Settings = () => {
+    const {} = useSettings()
 
-    return <WrapperPage></WrapperPage>
+    return <WrapperSettings> Settings </WrapperSettings>
 }

@@ -4,9 +4,11 @@ import { webStorage } from '@/utils/web-storage/web-storage'
 import { WebStorage } from '@/constants/web-storage/web-storage'
 import { useDispatch } from 'react-redux'
 import { wardrobeActions } from '@/stores/wardrobe'
+import { useRouter } from 'next/router'
 
 export const useHeader = () => {
     const dispatch = useDispatch()
+    const router = useRouter()
 
     const [top] = useTypedSelector((state) => state.wardrobe.top)
     const [tors] = useTypedSelector((state) => state.wardrobe.tors)
@@ -39,6 +41,10 @@ export const useHeader = () => {
         )
 
         dispatch(wardrobeActions.saveCollections(collection))
+
+        router.replace('/collections').then(() => {
+            dispatch(wardrobeActions.clearSelectedCollection())
+        })
     }
 
     return {
