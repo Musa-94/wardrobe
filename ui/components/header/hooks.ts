@@ -40,14 +40,20 @@ export const useHeader = () => {
             [IWardrobeContent[]]
         >(WebStorage.COLLECTIONS)
 
-        webStorage.setLocalStorage(
-            WebStorage.COLLECTIONS,
-            JSON.stringify(
-                collectionsFromLS?.length
-                    ? [...collectionsFromLS, collection]
-                    : [collection]
+        try {
+            webStorage.setLocalStorage(
+                WebStorage.COLLECTIONS,
+                JSON.stringify(
+                    collectionsFromLS?.length
+                        ? [...collectionsFromLS, collection]
+                        : [collection]
+                )
             )
-        )
+        } catch (e) {
+            alert(
+                'Ваша коллекция не сохранится в Базу данных и после перезагрузки страницы, всё удалится'
+            )
+        }
 
         dispatch(wardrobeActions.saveCollections(collection))
 
