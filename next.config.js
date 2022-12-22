@@ -2,17 +2,12 @@
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'avro-ra.ru',
-            },
-            {
-                protocol: 'https',
-                hostname: 'cdn.dsmcdn.com',
-            },
-        ],
+    compiler: {
+        styledComponents: {
+            displayName: true,
+            ssr: true,
+            fileName: true,
+        },
     },
 }
 

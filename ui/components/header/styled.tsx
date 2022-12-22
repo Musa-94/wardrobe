@@ -9,6 +9,7 @@ export const WrapperHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
+    border-bottom: 1px solid black;
 `
 
 export const HeaderLink = styled(Link)`

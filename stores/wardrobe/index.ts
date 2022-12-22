@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IWardrobeContent, SetWardrobeContent, WardrobeType } from './types'
-import { webStorage } from '@/utils/web-storage/web-storage'
-import { WebStorage } from '@/constants/web-storage/web-storage'
 
 export interface IWardrobeState {
     top: IWardrobeContent[]
@@ -10,7 +8,7 @@ export interface IWardrobeState {
     footer: IWardrobeContent[]
     accessories: IWardrobeContent[]
     temps: IWardrobeContent[]
-    collections: [IWardrobeContent[]]
+    collections: [IWardrobeContent[]] | []
 }
 
 const initialState: IWardrobeState = {
@@ -20,9 +18,7 @@ const initialState: IWardrobeState = {
     middle: [],
     footer: [],
     temps: [],
-    collections: webStorage.getLocalStorage<[IWardrobeContent[]]>(
-        WebStorage.COLLECTIONS
-    ) || [[]],
+    collections: [],
 }
 
 const wardrobeSlice = createSlice({
@@ -41,9 +37,7 @@ const wardrobeSlice = createSlice({
             ]
         },
         saveCollections: (state, action: PayloadAction<IWardrobeContent[]>) => {
-            const [collection] = state.collections
-
-            if (!collection.length) {
+            if (!state.collections.length) {
                 state.collections = [action.payload]
 
                 return
@@ -64,6 +58,9 @@ const wardrobeSlice = createSlice({
             state.tors = []
             state.middle = []
             state.footer = []
+        },
+        hydrate: (state, action) => {
+            state.collections = action.payload
         },
     },
 })

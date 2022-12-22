@@ -1,29 +1,28 @@
-import { useCollections } from './hooks'
-import { CollectionsContainer, Title, WrapperCollections } from './styled'
-import Image from 'next/image'
+import { useCollections, useHydrate } from './hooks'
+import {
+    Title,
+    CarouselContainer,
+    CollectionsCarousel,
+    WrapperCollections,
+} from './styled'
+import { Collection } from '@/pages/collections/atoms/collection'
 
 export const Collections = () => {
     const { collections } = useCollections()
-    const index = 0
+    useHydrate()
 
     return (
         <WrapperCollections>
             <Title>Collections</Title>
-            <CollectionsContainer>
-                {collections[index].length
-                    ? collections[index].map((collection) =>
-                          collection?.image ? (
-                              <Image
-                                  key={collection.id}
-                                  src={collection?.image}
-                                  alt={collection?.name}
-                                  width={150}
-                                  height={150}
-                              />
-                          ) : null
-                      )
-                    : null}
-            </CollectionsContainer>
+            <CarouselContainer>
+                <CollectionsCarousel>
+                    {collections.length && collections[0].length
+                        ? collections.map((collection, index) => (
+                              <Collection key={index} collection={collection} />
+                          ))
+                        : null}
+                </CollectionsCarousel>
+            </CarouselContainer>
         </WrapperCollections>
     )
 }
