@@ -14,6 +14,8 @@ export const WrapperBottomNavigation = styled.nav`
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
+    border-top: 1px solid black;
+    box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
 `
 
 export const AddDress = styled(motion.div)`

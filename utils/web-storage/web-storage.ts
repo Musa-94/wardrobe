@@ -25,6 +25,12 @@ class WebStorage {
         return JSON.parse(item)
     }
 
+    removeLocalStorage = (key: string) => {
+        if (!key) return
+
+        this._local?.removeItem(key)
+    }
+
     setSessionStorage = (key: string, data: string) => {
         if (!key || !this._session) return
 
@@ -39,6 +45,12 @@ class WebStorage {
         if (!item) return
 
         return JSON.parse(item)
+    }
+
+    removeSessionStorage = (key: string) => {
+        if (!key) return
+
+        this._session?.removeItem(key)
     }
 }
 

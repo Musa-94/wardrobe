@@ -59,6 +59,9 @@ const wardrobeSlice = createSlice({
             state.middle = []
             state.footer = []
         },
+        clearSavedCollections: (state) => {
+            state.collections = []
+        },
         hydrate: (state, action) => {
             state.collections = action.payload
         },

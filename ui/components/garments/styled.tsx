@@ -10,8 +10,6 @@ export const WrapperGarments = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 10px solid white;
-    border-radius: 20px;
     background: ${({ theme }) => theme.common.backgroundNav};
     overflow-y: auto;
 `

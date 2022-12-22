@@ -1,8 +1,28 @@
 import { useSettings } from './hooks'
-import { WrapperSettings } from './styled'
+import {
+    ButtonContainer,
+    ClearLocalStorageButton,
+    TextButtonFunction,
+    TitlePage,
+    WrapperSettings,
+} from './styled'
 
 export const Settings = () => {
-    const {} = useSettings()
+    const { onCleanCollections } = useSettings()
 
-    return <WrapperSettings> Settings </WrapperSettings>
+    return (
+        <WrapperSettings>
+            <TitlePage>Settings</TitlePage>
+            <ButtonContainer>
+                <TextButtonFunction>Clean Collections:</TextButtonFunction>
+
+                <ClearLocalStorageButton
+                    type="primary"
+                    onClick={onCleanCollections}
+                >
+                    delete
+                </ClearLocalStorageButton>
+            </ButtonContainer>
+        </WrapperSettings>
+    )
 }
