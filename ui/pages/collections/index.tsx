@@ -15,7 +15,7 @@ export const Collections = () => {
         <WrapperCollections>
             <Title>Collections</Title>
             <CarouselContainer>
-                <CollectionsCarousel>
+                <CollectionsCarousel dotPosition="right">
                     {collections.length && collections[0].length
                         ? collections.map((collection, index) => (
                               <Collection key={index} collection={collection} />
