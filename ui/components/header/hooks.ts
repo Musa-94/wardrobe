@@ -24,17 +24,18 @@ export const useHeader = () => {
     const [collectionComplete, setCollectionComplete] = useState<boolean>(false)
 
     useEffect(() => {
-        if (collection.length === 4) {
+        if (collection.length > 1) {
             setCollectionComplete(true)
         }
 
-        if (collection.length < 4 && collectionComplete) {
+        if (collection.length < 2 && collectionComplete) {
             setCollectionComplete(false)
         }
     }, [collection, collectionComplete])
 
     const onSaveCollection = () => {
-        if (collection.length < 4) return
+        if (collection.length < 2) return
+
         const collectionsFromLS = webStorage.getLocalStorage<
             [IWardrobeContent[]]
         >(WebStorage.COLLECTIONS)
