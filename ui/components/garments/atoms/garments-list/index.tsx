@@ -2,8 +2,8 @@ import { memo } from 'react'
 import { IWardrobeContent, WardrobeType } from '@/stores/wardrobe/types'
 import { useGarmentsList } from './hooks'
 import {
+    DeleteImage,
     GarmentsBlock,
-    GarmentsClose,
     GarmentsImage,
 } from '@/components/garments/styled'
 
@@ -36,8 +36,13 @@ export const GarmentsByPosition = memo(({ list }: IGarmentsByPosition) => {
                             fill
                             sizes="100vw"
                         />
-                        <GarmentsClose
-                            onClick={() => onDelete(list.position, item.id)}
+                        <DeleteImage
+                            size={24}
+                            color="#ff5454"
+                            name="Delete"
+                            onClick={() => {
+                                onDelete(list.position, item.id)
+                            }}
                         />
                     </GarmentsBlock>
                 ) : null

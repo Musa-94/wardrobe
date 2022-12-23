@@ -3,15 +3,15 @@ import {
     NavLink,
     AddDress,
     HiddenInputFile,
-    SavedCollections,
     LabelHiddenInput,
     PlusVerticalLine,
     PlusHorizonteLine,
     AddButtonPlusContainer,
     WrapperBottomNavigation,
-    Settings,
     LeftBlockLinks,
+    RightBlockLinks,
 } from './styled'
+import { Icon } from '@/components/icon'
 
 const variants = {
     init: { scale: 1, rotate: 45, translateX: '-50%' },
@@ -26,13 +26,13 @@ export const BottomNavigation = () => {
         <WrapperBottomNavigation>
             <LeftBlockLinks>
                 <NavLink href="/settings" aria-label="settings web site">
-                    <Settings fontSize={30} />
+                    <Icon name="Settings" size={30} color="#ff5454" />
                 </NavLink>
                 <NavLink
                     href="/collections"
                     aria-label="show saved collections"
                 >
-                    <SavedCollections fontSize={30} />
+                    <Icon name="Dress" size={30} color="#ff5454" />
                 </NavLink>
             </LeftBlockLinks>
 
@@ -54,6 +54,12 @@ export const BottomNavigation = () => {
                     </AddButtonPlusContainer>
                 </AddDress>
             </LabelHiddenInput>
+
+            <RightBlockLinks>
+                <NavLink href="/" aria-label="home">
+                    <Icon name="Wardrobe" size={30} color="#ff5454" />
+                </NavLink>
+            </RightBlockLinks>
         </WrapperBottomNavigation>
     )
 }

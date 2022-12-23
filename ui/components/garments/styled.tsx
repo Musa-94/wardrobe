@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 
-import { CloseOutline } from 'antd-mobile-icons'
 import { motion } from 'framer-motion'
+import { Icon } from '@/components/icon'
 
 export const WrapperGarments = styled.div`
     height: calc(100vh - 100px);
@@ -29,13 +29,8 @@ export const GarmentsImage = styled(Image)`
     object-fit: cover;
     border-radius: 20px;
 `
-
-export const GarmentsClose = styled(CloseOutline)`
+export const DeleteImage = styled(Icon)`
     position: absolute;
-    top: -15px;
-    right: -15px;
-
-    &:hover {
-        color: white;
-    }
+    top: 0;
+    right: -30px;
 `

@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
-import { HeartOutline, SetOutline } from 'antd-mobile-icons'
 import Link from 'next/link'
 
 export const WrapperBottomNavigation = styled.nav`
@@ -14,7 +13,7 @@ export const WrapperBottomNavigation = styled.nav`
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    border-top: 1px solid black;
+    border-top: 1px solid #ff5454;
     box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
 `
 
@@ -55,19 +54,15 @@ export const LabelHiddenInput = styled.label`
     position: absolute;
     bottom: 20px;
     left: 50%;
+    width: 0;
+    height: 50px;
 `
 export const HiddenInputFile = styled.input`
     display: none;
     visibility: hidden;
 `
 
-const svgStyled = css`
-    scale: 1;
-
-    path {
-        fill: #ff5454 !important;
-    }
-
+const animation = css`
     &:hover {
         scale: 1.2;
     }
@@ -77,6 +72,8 @@ const svgStyled = css`
     }
 
     transition: scale 0.3s ease-out;
+
+    scale: 1;
 `
 
 export const LeftBlockLinks = styled.div`
@@ -86,12 +83,16 @@ export const LeftBlockLinks = styled.div`
     align-items: center;
 `
 
-export const SavedCollections = styled(HeartOutline)`
-    ${svgStyled};
+export const RightBlockLinks = styled.div`
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
 `
 
-export const Settings = styled(SetOutline)`
-    ${svgStyled};
+export const NavLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ${animation};
 `
-
-export const NavLink = styled(Link)``

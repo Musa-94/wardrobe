@@ -23,6 +23,7 @@
       "@/stores/*": ["stores/*"],
       "@/utils/*": ["utils/*"],
       "@/constants/*": ["constants/*"],
+      "@/icons/*": ["icons/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

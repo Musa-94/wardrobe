@@ -9,7 +9,7 @@ export const WrapperHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #ff5454;
     box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 `
 
