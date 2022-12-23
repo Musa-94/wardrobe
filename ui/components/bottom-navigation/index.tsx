@@ -26,13 +26,13 @@ export const BottomNavigation = () => {
         <WrapperBottomNavigation>
             <LeftBlockLinks>
                 <NavLink href="/settings" aria-label="settings web site">
-                    <Settings fontSize={40} />
+                    <Settings fontSize={30} />
                 </NavLink>
                 <NavLink
                     href="/collections"
                     aria-label="show saved collections"
                 >
-                    <SavedCollections fontSize={36} />
+                    <SavedCollections fontSize={30} />
                 </NavLink>
             </LeftBlockLinks>
 

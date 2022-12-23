@@ -8,9 +8,15 @@ import { wardrobeActions } from '@/stores/wardrobe'
 
 export const useCollections = () => {
     const collections = useTypedSelector((state) => state.wardrobe.collections)
+    const isEmpty = useTypedSelector((state) => {
+        const collections = state.wardrobe.collections
+
+        return !collections.length || !collections[0].length
+    })
 
     return {
         collections,
+        isEmpty,
     }
 }
 

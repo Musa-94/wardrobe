@@ -1,44 +1,35 @@
-import { useGarments } from './hooks'
-import {
-    GarmentsBlock,
-    GarmentsClose,
-    GarmentsImage,
-    WrapperGarments,
-} from './styled'
+import React, { memo } from 'react'
 import { AnimatePresence } from 'framer-motion'
 
-export const Garments = () => {
-    const { variants, wardrobeList, onDelete } = useGarments()
+import { Empty } from '@/components/empty'
+import {
+    GarmentsByPosition,
+    IWardrobeWithPosition,
+} from '@/components/garments/atoms/garments-list'
+import { useGarments } from './hooks'
+import { WrapperGarments } from './styled'
+
+const getContent = (
+    isEmpty: boolean,
+    wardrobeList: IWardrobeWithPosition[]
+) => {
+    if (isEmpty) {
+        return <Empty description="wardrobe is empty" />
+    }
 
     return (
-        <WrapperGarments>
-            <AnimatePresence>
-                {wardrobeList.map((list) =>
-                    list.data.map((item) =>
-                        item.image ? (
-                            <GarmentsBlock
-                                key={item.id}
-                                initial={variants.init}
-                                animate={variants.animate}
-                                transition={variants.transition}
-                                exit={variants.exit}
-                            >
-                                <GarmentsImage
-                                    src={item.image}
-                                    alt={item.name}
-                                    fill
-                                    sizes="100vw"
-                                />
-                                <GarmentsClose
-                                    onClick={() =>
-                                        onDelete(list.position, item.id)
-                                    }
-                                />
-                            </GarmentsBlock>
-                        ) : null
-                    )
-                )}
-            </AnimatePresence>
-        </WrapperGarments>
+        <AnimatePresence>
+            {wardrobeList.map((list, index) => (
+                <GarmentsByPosition key={index} list={list} />
+            ))}
+        </AnimatePresence>
     )
 }
+
+export const Garments = memo(() => {
+    const { wardrobeList, isEmpty } = useGarments()
+
+    return (
+        <WrapperGarments>{getContent(isEmpty, wardrobeList)}</WrapperGarments>
+    )
+})

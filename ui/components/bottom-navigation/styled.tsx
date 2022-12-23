@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
-import { MoreOutline, StarFill } from 'antd-mobile-icons'
+import { HeartOutline, SetOutline } from 'antd-mobile-icons'
 import Link from 'next/link'
 
 export const WrapperBottomNavigation = styled.nav`
@@ -86,11 +86,11 @@ export const LeftBlockLinks = styled.div`
     align-items: center;
 `
 
-export const SavedCollections = styled(StarFill)`
+export const SavedCollections = styled(HeartOutline)`
     ${svgStyled};
 `
 
-export const Settings = styled(MoreOutline)`
+export const Settings = styled(SetOutline)`
     ${svgStyled};
 `
 

@@ -1,31 +1,19 @@
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useMemo } from 'react'
-import { WardrobeType } from '@/stores/wardrobe/types'
-import { useDispatch } from 'react-redux'
-import { wardrobeActions } from '@/stores/wardrobe'
 import { config } from '@/config/index'
-
-const variants = {
-    init: { opacity: 0, scale: 0.5 },
-    animate: {
-        opacity: 1,
-        scale: 1,
-    },
-    transition: {
-        default: {
-            duration: 0.3,
-            ease: [0, 0.71, 0.2, 1.01],
-        },
-    },
-    exit: { opacity: 0, scale: 0.5 },
-}
+import { IWardrobeContent, WardrobeType } from '@/stores/wardrobe/types'
 
 export const useGarments = () => {
-    const dispatch = useDispatch()
+    const isEmpty = useTypedSelector((state) => {
+        const wardrobe = state.wardrobe
 
-    const onDelete = (position: WardrobeType, id: number) => {
-        dispatch(wardrobeActions.delete({ position, id }))
-    }
+        return (
+            !wardrobe.top.length &&
+            !wardrobe.tors.length &&
+            !wardrobe.middle.length &&
+            !wardrobe.footer.length
+        )
+    })
 
     const wardrobe = useTypedSelector((state) => state.wardrobe)
 
@@ -39,8 +27,7 @@ export const useGarments = () => {
     }, [wardrobe])
 
     return {
-        variants,
-        onDelete,
         wardrobeList,
+        isEmpty,
     }
 }
