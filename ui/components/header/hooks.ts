@@ -11,30 +11,21 @@ export const useHeader = () => {
     const dispatch = useDispatch()
     const router = useRouter()
 
-    const [top] = useTypedSelector((state) => state.wardrobe.top)
-    const [tors] = useTypedSelector((state) => state.wardrobe.tors)
-    const [footer] = useTypedSelector((state) => state.wardrobe.middle)
-    const [middle] = useTypedSelector((state) => state.wardrobe.footer)
+    const { collection, isComplete } = useTypedSelector((state) => {
+        const [top] = state.wardrobe.top
+        const [tors] = state.wardrobe.tors
+        const [middle] = state.wardrobe.middle
+        const [footer] = state.wardrobe.footer
 
-    const collection = useMemo(
-        () => [top, tors, middle, footer].filter((dress) => dress),
-        [top, tors, middle, footer]
-    )
-
-    const [collectionComplete, setCollectionComplete] = useState<boolean>(false)
-
-    useEffect(() => {
-        if (collection.length > 1) {
-            setCollectionComplete(true)
+        return {
+            collection: [top, tors, middle, footer],
+            isComplete:
+                [top, tors, middle, footer].filter((dress) => dress).length > 1,
         }
-
-        if (collection.length < 2 && collectionComplete) {
-            setCollectionComplete(false)
-        }
-    }, [collection, collectionComplete])
+    })
 
     const onSaveCollection = () => {
-        if (collection.length < 2) return
+        if (!isComplete) return
 
         const collectionsFromLS = webStorage.getLocalStorage<
             [IWardrobeContent[]]
@@ -63,7 +54,7 @@ export const useHeader = () => {
     }
 
     return {
-        collectionComplete,
+        collectionComplete: isComplete,
         onSaveCollection,
     }
 }

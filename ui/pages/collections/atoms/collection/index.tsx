@@ -1,6 +1,6 @@
 import { IWardrobeContent } from '@/stores/wardrobe/types'
 import Image from 'next/image'
-import { CollectionsContainer } from './styled'
+import { CollectionsContainer, Stub } from './styled'
 
 interface ICollection {
     collection: IWardrobeContent[]
@@ -9,7 +9,7 @@ interface ICollection {
 export const Collection = ({ collection }: ICollection) => {
     return (
         <CollectionsContainer>
-            {collection.map((item) =>
+            {collection.map((item, index) =>
                 item?.image ? (
                     <Image
                         key={item.id}
@@ -18,7 +18,9 @@ export const Collection = ({ collection }: ICollection) => {
                         width={150}
                         height={150}
                     />
-                ) : null
+                ) : (
+                    <Stub key={index} />
+                )
             )}
         </CollectionsContainer>
     )

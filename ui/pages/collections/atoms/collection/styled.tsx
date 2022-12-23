@@ -6,3 +6,8 @@ export const CollectionsContainer = styled.div`
     justify-content: center;
     align-items: center;
 `
+
+export const Stub = styled.div`
+    width: 150px;
+    height: 150px;
+`

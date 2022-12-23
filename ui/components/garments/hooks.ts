@@ -1,7 +1,7 @@
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useMemo } from 'react'
 import { config } from '@/config/index'
-import { IWardrobeContent, WardrobeType } from '@/stores/wardrobe/types'
+import { WardrobeType } from '@/stores/wardrobe/types'
 
 export const useGarments = () => {
     const isEmpty = useTypedSelector((state) => {
