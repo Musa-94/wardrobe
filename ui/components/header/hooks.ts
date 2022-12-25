@@ -1,15 +1,16 @@
 import { useTypedSelector } from '@/hooks/useTypedSelector'
-import { useEffect, useMemo, useRef, useState } from 'react'
 import { webStorage } from '@/utils/web-storage/web-storage'
 import { WebStorage } from '@/constants/web-storage/web-storage'
 import { useDispatch } from 'react-redux'
 import { wardrobeActions } from '@/stores/wardrobe'
 import { useRouter } from 'next/router'
 import { IWardrobeContent } from '@/stores/wardrobe/types'
+import { useMessageContext } from '@/contexts/message'
 
 export const useHeader = () => {
     const dispatch = useDispatch()
     const router = useRouter()
+    const { onMessage } = useMessageContext()
 
     const { collection, isComplete } = useTypedSelector((state) => {
         const [top] = state.wardrobe.top
@@ -24,7 +25,7 @@ export const useHeader = () => {
         }
     })
 
-    const onSaveCollection = () => {
+    const onSaveCollection = async () => {
         if (!isComplete) return
 
         const collectionsFromLS = webStorage.getLocalStorage<
@@ -48,9 +49,18 @@ export const useHeader = () => {
 
         dispatch(wardrobeActions.saveCollections(collection))
 
-        router.replace('/collections').then(() => {
-            dispatch(wardrobeActions.clearSelectedCollection())
+        await router.replace('/collections')
+
+        onMessage({
+            type: 'success',
+            content: 'Successfully saved',
+            style: {
+                padding: '5px',
+                fontSize: '14px',
+            },
+            duration: 3,
         })
+        dispatch(wardrobeActions.clearSelectedCollection())
     }
 
     return {

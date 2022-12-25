@@ -7,6 +7,12 @@ export const PreviewContent = styled.div`
     justify-content: center;
     align-items: center;
 `
+export const PositionContainer = styled.div`
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 export const SelectAntd = styled(Select)`
     width: 120px;
 `

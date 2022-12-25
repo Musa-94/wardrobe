@@ -24,6 +24,7 @@
       "@/utils/*": ["utils/*"],
       "@/constants/*": ["constants/*"],
       "@/icons/*": ["icons/*"],
+      "@/contexts/*": ["contexts/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

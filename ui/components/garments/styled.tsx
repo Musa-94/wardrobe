@@ -15,9 +15,9 @@ export const WrapperGarments = styled.div`
 `
 
 export const GarmentsBlock = styled(motion.div)`
-    width: 150px;
-    height: 150px;
-    margin: 15px 0;
+    width: 125px;
+    height: 125px;
+    margin-top: 10px;
     position: relative;
     display: flex;
     flex-direction: column;

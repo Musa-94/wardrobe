@@ -34,7 +34,7 @@ export const useHandleSelect = (image: string = '') => {
         setSelect(value)
     }
 
-    const onSave = () => {
+    const onSave = async () => {
         dispatch(
             wardrobeActions.setWardrobeData({
                 wardrobeType: select as WardrobeType,
@@ -45,9 +45,10 @@ export const useHandleSelect = (image: string = '') => {
         )
 
         dispatch(modalsActions.closeModal(ModalName.PREVIEW))
+        onSelect('')
 
         if (router.pathname !== '/') {
-            router.replace('/')
+            await router.replace('/')
         }
     }
 

@@ -1,7 +1,11 @@
 import { useHandleSelect, usePreview } from '@/components/modals/preview/hooks'
 import { Modal } from '@/components/modals/modal'
 import Image from 'next/image'
-import { PreviewContent, SelectAntd } from '@/components/modals/preview/styled'
+import {
+    PositionContainer,
+    PreviewContent,
+    SelectAntd,
+} from '@/components/modals/preview/styled'
 
 export const Preview = () => {
     const { open, onClose, imageData } = usePreview()
@@ -29,9 +33,9 @@ export const Preview = () => {
                             width={150}
                             height={150}
                         />
-                        <div>
-                            <span>{imageData.name}</span>
-                        </div>
+                        <PositionContainer>
+                            <span>position: </span>
+                        </PositionContainer>
                     </>
                 ) : null}
                 <SelectAntd

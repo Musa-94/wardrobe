@@ -5,7 +5,7 @@ export const WrapperCollections = styled.div`
     background: ${({ theme }) => theme.common.backgroundNav};
     height: calc(100vh - 100px);
     display: grid;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 25px 1fr;
 `
 
 export const Title = styled.span`
@@ -13,7 +13,7 @@ export const Title = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: 18px;
 `
 
 export const CollectionsCarousel = styled(Carousel)`

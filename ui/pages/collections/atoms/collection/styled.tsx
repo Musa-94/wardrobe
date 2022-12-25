@@ -8,6 +8,6 @@ export const CollectionsContainer = styled.div`
 `
 
 export const Stub = styled.div`
-    width: 150px;
-    height: 150px;
+    width: 135px;
+    height: 135px;
 `

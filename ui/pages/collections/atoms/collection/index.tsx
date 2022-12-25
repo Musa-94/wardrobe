@@ -15,8 +15,8 @@ export const Collection = ({ collection }: ICollection) => {
                         key={item.id}
                         src={item?.image}
                         alt={item?.name}
-                        width={150}
-                        height={150}
+                        width={125}
+                        height={125}
                     />
                 ) : (
                     <Stub key={index} />
