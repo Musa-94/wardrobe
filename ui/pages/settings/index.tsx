@@ -1,10 +1,10 @@
 import { useSettings } from './hooks'
 import {
-    ButtonContainer,
-    ClearLocalStorageButton,
-    TextButtonFunction,
     TitlePage,
+    ButtonContainer,
     WrapperSettings,
+    TextButtonFunction,
+    ClearLocalStorageButton,
 } from './styled'
 
 export const Settings = () => {

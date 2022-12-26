@@ -2,9 +2,11 @@ import { ChangeEvent, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { wardrobeActions } from '@/stores/wardrobe'
 import { ModalName, modalsActions } from '@/stores/modals'
+import { useRouter } from 'next/router'
 
 export const useBottomNavigation = () => {
     const dispatch = useDispatch()
+    const router = useRouter()
 
     const onChange = useCallback(
         (event: ChangeEvent<HTMLInputElement>) => {
@@ -37,5 +39,8 @@ export const useBottomNavigation = () => {
         [dispatch]
     )
 
-    return { onChange }
+    return {
+        onChange,
+        activePage: router.pathname === '/' ? '/' : router.pathname.slice(1),
+    }
 }

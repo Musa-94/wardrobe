@@ -20,19 +20,31 @@ const variants = {
 }
 
 export const BottomNavigation = () => {
-    const { onChange } = useBottomNavigation()
+    const { onChange, activePage } = useBottomNavigation()
 
     return (
         <WrapperBottomNavigation>
             <LeftBlockLinks>
                 <NavLink href="/settings" aria-label="settings web site">
-                    <Icon name="Settings" size={30} color="#ff5454" />
+                    <Icon
+                        name="Settings"
+                        size={30}
+                        color={
+                            activePage === 'settings' ? '#ff5454' : '#3c3434'
+                        }
+                    />
                 </NavLink>
                 <NavLink
                     href="/collections"
                     aria-label="show saved collections"
                 >
-                    <Icon name="Dress" size={30} color="#ff5454" />
+                    <Icon
+                        name="Dress"
+                        size={30}
+                        color={
+                            activePage === 'collections' ? '#ff5454' : '#3c3434'
+                        }
+                    />
                 </NavLink>
             </LeftBlockLinks>
 
@@ -57,7 +69,11 @@ export const BottomNavigation = () => {
 
             <RightBlockLinks>
                 <NavLink href="/" aria-label="home">
-                    <Icon name="Wardrobe" size={30} color="#ff5454" />
+                    <Icon
+                        name="Wardrobe"
+                        size={30}
+                        color={activePage === '/' ? '#ff5454' : '#3c3434'}
+                    />
                 </NavLink>
             </RightBlockLinks>
         </WrapperBottomNavigation>
