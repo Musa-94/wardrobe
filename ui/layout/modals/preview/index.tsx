@@ -1,11 +1,7 @@
-import { useHandleSelect, usePreview } from '@/components/modals/preview/hooks'
-import { Modal } from '@/components/modals/modal'
+import { useHandleSelect, usePreview } from './hooks'
 import Image from 'next/image'
-import {
-    PositionContainer,
-    PreviewContent,
-    SelectAntd,
-} from '@/components/modals/preview/styled'
+import { PositionContainer, PreviewContent, SelectAntd } from './styled'
+import { Modal } from '@/components/modal'
 
 export const Preview = () => {
     const { open, onClose, imageData } = usePreview()

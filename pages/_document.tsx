@@ -40,7 +40,10 @@ export default class MyDocument extends Document {
     render(): JSX.Element {
         return (
             <Html lang="en">
-                <Head />
+                <Head>
+                    <meta name="description" content="wardrobe" />
+                    <link rel="icon" href="/favicon.ico" />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />

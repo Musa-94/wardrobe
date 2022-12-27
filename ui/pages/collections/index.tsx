@@ -16,7 +16,7 @@ const getContent = (
     if (isEmpty) return <Empty description="no saved collections" />
 
     return (
-        <CollectionsCarousel dotPosition="right">
+        <CollectionsCarousel dotPosition="bottom">
             {collections.map((collection, index) => (
                 <Collection key={index} collection={collection} />
             ))}

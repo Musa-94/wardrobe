@@ -1,11 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Themes } from '../../themes/types'
 
 interface IAppState {
+    theme: Themes
     activeMenu: string
     isOpenSidebar: boolean
 }
 
 const initialState: IAppState = {
+    theme: Themes.DARK,
     activeMenu: '',
     isOpenSidebar: false,
 }
@@ -19,6 +22,10 @@ const appSlice = createSlice({
         },
         toggleSidebar: (state) => {
             state.isOpenSidebar = !state.isOpenSidebar
+        },
+        toggleTheme: (state) => {
+            state.theme =
+                state.theme === Themes.DARK ? Themes.LIGHT : Themes.DARK
         },
     },
 })

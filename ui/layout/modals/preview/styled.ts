@@ -6,13 +6,18 @@ export const PreviewContent = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: ${({ theme }) => theme.common.backgroundNav};
 `
 export const PositionContainer = styled.div`
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: ${({ theme }) => theme.common.colorFonts};
+    background-color: ${({ theme }) => theme.common.backgroundNav};
 `
 export const SelectAntd = styled(Select)`
     width: 120px;
+    color: ${({ theme }) => theme.common.colorFonts};
+    background-color: ${({ theme }) => theme.common.backgroundNav};
 `

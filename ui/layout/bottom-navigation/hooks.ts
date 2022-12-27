@@ -3,9 +3,16 @@ import { useDispatch } from 'react-redux'
 import { wardrobeActions } from '@/stores/wardrobe'
 import { ModalName, modalsActions } from '@/stores/modals'
 import { useRouter } from 'next/router'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { Themes } from '../../../themes/types'
 
 export const useBottomNavigation = () => {
     const dispatch = useDispatch()
+    const normalColor = useTypedSelector((state) => {
+        const theme = state.app.theme
+
+        return theme === Themes.DARK ? 'white' : '#3c3434'
+    })
     const router = useRouter()
 
     const onChange = useCallback(
@@ -42,5 +49,6 @@ export const useBottomNavigation = () => {
     return {
         onChange,
         activePage: router.pathname === '/' ? '/' : router.pathname.slice(1),
+        normalColor,
     }
 }

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Button } from '@/components/button'
+import { Switch } from 'antd'
 
 export const WrapperSettings = styled.div`
     display: grid;
@@ -13,6 +14,7 @@ export const TitlePage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    color: ${({ theme }) => theme.common.colorFontsLogo};
 `
 
 export const ButtonContainer = styled.div`
@@ -25,10 +27,15 @@ export const ButtonContainer = styled.div`
 `
 export const TextButtonFunction = styled.span`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 20px;
+    color: ${({ theme }) => theme.common.colorFonts};
 `
 export const ClearLocalStorageButton = styled(Button)`
-    color: white;
+    color: ${({ theme }) => theme.common.colorFonts};
+`
+export const ToggleTheme = styled(Switch)`
+    color: ${({ theme }) => theme.common.colorFonts};
+    width: 20%;
 `

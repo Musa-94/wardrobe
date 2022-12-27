@@ -6,6 +6,7 @@ export const WrapperEmpty = styled.div`
     justify-content: center;
     align-items: center;
     text-transform: capitalize;
+    color: ${({ theme }) => theme.common.colorFontsLogo};
 
     & > div > div {
         height: 100% !important;

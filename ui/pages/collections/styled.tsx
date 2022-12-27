@@ -14,6 +14,7 @@ export const Title = styled.span`
     justify-content: center;
     align-items: center;
     font-size: 18px;
+    color: ${({ theme }) => theme.common.colorFonts};
 `
 
 export const CollectionsCarousel = styled(Carousel)`

@@ -5,10 +5,11 @@ import {
     WrapperSettings,
     TextButtonFunction,
     ClearLocalStorageButton,
+    ToggleTheme,
 } from './styled'
 
 export const Settings = () => {
-    const { onCleanCollections } = useSettings()
+    const { onCleanCollections, isChecked, toggleTheme } = useSettings()
 
     return (
         <WrapperSettings>
@@ -22,6 +23,11 @@ export const Settings = () => {
                 >
                     delete
                 </ClearLocalStorageButton>
+            </ButtonContainer>
+            <ButtonContainer>
+                <TextButtonFunction>Dark Theme:</TextButtonFunction>
+
+                <ToggleTheme checked={isChecked} onChange={toggleTheme} />
             </ButtonContainer>
         </WrapperSettings>
     )

@@ -1,4 +1,4 @@
-import { Preview } from '@/components/modals/preview'
+import { Preview } from './preview'
 
 export const Modals = () => {
     return (

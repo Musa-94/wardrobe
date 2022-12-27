@@ -1,9 +1,9 @@
-export const themes = {
+export const dark = {
     common: {
-        colorFonts: '#909090',
-        colorFontsLogo: '#000000',
+        colorFonts: '#ffffff',
+        colorFontsLogo: 'white',
         colorFontsActive: 'white',
-        backgroundNav: '#DEEBFB',
+        backgroundNav: '#202029',
         backgroundLayout: 'white',
     },
     navigation: {
@@ -16,5 +16,3 @@ export const themes = {
         closeActive: '#FF5454',
     },
 }
-
-export type Themes = typeof themes

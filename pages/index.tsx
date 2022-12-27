@@ -6,8 +6,10 @@ export default function HomePage() {
         <>
             <Head>
                 <title>wardrobe</title>
-                <meta name="description" content="my personal wardrobe" />
-                <link rel="icon" href="/favicon.ico" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, maximum-scale=1"
+                />
             </Head>
             <Main />
         </>

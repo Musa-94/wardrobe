@@ -9,11 +9,10 @@ export const GlobalStyled = createGlobalStyle`
   }
   
   body {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    font-family: "Roboto Light";
-    font-weight: bold;
+    position: fixed;
+    background-attachment: fixed;
+    font-family: "Roboto Light",sans-serif;
+    font-weight: normal;
     font-style: italic;
   }
   
