@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Carousel } from 'antd'
+import { Icon } from '@/components/icon'
 
 export const WrapperCollections = styled.div`
     background: ${({ theme }) => theme.common.backgroundNav};
@@ -25,4 +26,6 @@ export const CarouselContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    width: calc(100vw - 20px);
+    height: calc(100vh - 160px);
 `

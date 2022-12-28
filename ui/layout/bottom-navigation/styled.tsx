@@ -12,9 +12,25 @@ export const WrapperBottomNavigation = styled.nav`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px;
     border-top: 1px solid #ff5454;
     box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
+`
+export const LeftBlockLinks = styled.div`
+    width: 40%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+`
+
+export const RightBlockLinks = styled.div`
+    width: 40%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+`
+export const Stub = styled.div`
+    height: 100%;
+    width: 20%;
 `
 
 export const AddDress = styled(motion.div)`
@@ -74,20 +90,6 @@ const animation = css`
     transition: scale 0.3s ease-out;
 
     scale: 1;
-`
-
-export const LeftBlockLinks = styled.div`
-    width: 40%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-`
-
-export const RightBlockLinks = styled.div`
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
 `
 
 export const NavLink = styled(Link)`

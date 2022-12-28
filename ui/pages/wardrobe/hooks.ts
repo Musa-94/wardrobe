@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { config } from '@/config/index'
 import { WardrobeType } from '@/stores/wardrobe/types'
 
-export const useGarments = () => {
+export const useWardrobe = () => {
     const isEmpty = useTypedSelector((state) => {
         const wardrobe = state.wardrobe
 

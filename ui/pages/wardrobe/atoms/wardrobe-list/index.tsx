@@ -1,36 +1,32 @@
 import { memo } from 'react'
 import { IWardrobeContent, WardrobeType } from '@/stores/wardrobe/types'
-import { useGarmentsList } from './hooks'
-import {
-    DeleteImage,
-    GarmentsBlock,
-    GarmentsImage,
-} from '@/components/garments/styled'
+import { useWardrobeList } from './hooks'
+import { DeleteImage, WardrobeBlock, WardrobeImage } from './styled'
 
 export interface IWardrobeWithPosition {
     position: WardrobeType
     data: IWardrobeContent[]
 }
 
-interface IGarmentsByPosition {
+interface IWardrobeByPosition {
     list: IWardrobeWithPosition
 }
 
-export const GarmentsByPosition = memo(({ list }: IGarmentsByPosition) => {
-    const { variants, onDelete } = useGarmentsList()
+export const WardrobeList = memo(({ list }: IWardrobeByPosition) => {
+    const { variants, onDelete } = useWardrobeList()
 
     return (
         <>
             {list.data.map((item) =>
                 item.image ? (
-                    <GarmentsBlock
+                    <WardrobeBlock
                         key={item.id}
                         initial={variants.init}
                         animate={variants.animate}
                         transition={variants.transition}
                         exit={variants.exit}
                     >
-                        <GarmentsImage
+                        <WardrobeImage
                             src={item.image}
                             alt={item.name}
                             fill
@@ -44,7 +40,7 @@ export const GarmentsByPosition = memo(({ list }: IGarmentsByPosition) => {
                                 onDelete(list.position, item.id)
                             }}
                         />
-                    </GarmentsBlock>
+                    </WardrobeBlock>
                 ) : null
             )}
         </>

@@ -1,39 +1,43 @@
+import { memo } from 'react'
 import { useCollections, useHydrate } from './hooks'
+
+import { Collection } from '@/pages/collections/atoms/collection'
+import { Empty } from '@/components/empty'
 import {
     Title,
     CarouselContainer,
     CollectionsCarousel,
     WrapperCollections,
 } from './styled'
-import { Collection } from '@/pages/collections/atoms/collection'
-import { IWardrobeContent } from '@/stores/wardrobe/types'
-import { Empty } from '@/components/empty'
 
-const getContent = (
-    isEmpty: boolean,
-    collections: [IWardrobeContent[]] | []
-) => {
-    if (isEmpty) return <Empty description="no saved collections" />
+const Content = memo(() => {
+    const { collections, isEmpty, onDeleteCollection } = useCollections()
+
+    if (isEmpty)
+        return <Empty description="no saved collections" key="empty-block" />
 
     return (
-        <CollectionsCarousel dotPosition="bottom">
-            {collections.map((collection, index) => (
-                <Collection key={index} collection={collection} />
+        <CollectionsCarousel dotPosition="bottom" key="collection-carousel">
+            {collections.map((collection) => (
+                <Collection
+                    key={collection![0].id}
+                    collection={collection!}
+                    onDelete={onDeleteCollection}
+                />
             ))}
         </CollectionsCarousel>
     )
-}
+})
 
-export const Collections = () => {
-    const { collections, isEmpty } = useCollections()
+export const Collections = memo(() => {
     useHydrate()
 
     return (
         <WrapperCollections>
             <Title>Collections</Title>
             <CarouselContainer>
-                {getContent(isEmpty, collections)}
+                <Content />
             </CarouselContainer>
         </WrapperCollections>
     )
-}
+})

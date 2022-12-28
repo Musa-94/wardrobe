@@ -10,7 +10,7 @@
     "create:ui": "/bin/bash scripts/create-ui.sh",
     "create:store": "/bin/bash scripts/create-store.sh",
     "prefast:push": "yarn build",
-    "fast:push": "git add . && git commit -m \"implement themes\" && git push"
+    "fast:push": "git add . && git commit -m \"implement logic delete one collections\" && git push"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",

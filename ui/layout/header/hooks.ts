@@ -1,6 +1,6 @@
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { webStorage } from '@/utils/web-storage/web-storage'
-import { WebStorage } from '@/constants/web-storage/web-storage'
+import { LocalStorageKeys } from '@/constants/web-storage/local-storage-keys'
 import { useDispatch } from 'react-redux'
 import { wardrobeActions } from '@/stores/wardrobe'
 import { useRouter } from 'next/router'
@@ -30,11 +30,11 @@ export const useHeader = () => {
 
         const collectionsFromLS = webStorage.getLocalStorage<
             [IWardrobeContent[]]
-        >(WebStorage.COLLECTIONS)
+        >(LocalStorageKeys.COLLECTIONS)
 
         try {
             webStorage.setLocalStorage(
-                WebStorage.COLLECTIONS,
+                LocalStorageKeys.COLLECTIONS,
                 JSON.stringify(
                     collectionsFromLS?.length
                         ? [...collectionsFromLS, collection]

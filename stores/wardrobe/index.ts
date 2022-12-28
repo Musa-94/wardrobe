@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IWardrobeContent, SetWardrobeContent, WardrobeType } from './types'
+import { enableMapSet } from 'immer'
 
 export interface IWardrobeState {
     top: IWardrobeContent[]
@@ -8,9 +9,9 @@ export interface IWardrobeState {
     footer: IWardrobeContent[]
     accessories: IWardrobeContent[]
     temps: IWardrobeContent[]
-    collections: [IWardrobeContent[]] | []
+    collections: Map<number, IWardrobeContent[]>
 }
-
+enableMapSet()
 const initialState: IWardrobeState = {
     accessories: [],
     top: [],
@@ -18,7 +19,7 @@ const initialState: IWardrobeState = {
     middle: [],
     footer: [],
     temps: [],
-    collections: [],
+    collections: new Map(),
 }
 
 const wardrobeSlice = createSlice({
@@ -37,15 +38,9 @@ const wardrobeSlice = createSlice({
             ]
         },
         saveCollections: (state, action: PayloadAction<IWardrobeContent[]>) => {
-            if (!state.collections.length) {
-                state.collections = [action.payload]
-
-                return
-            }
-
-            state.collections.push(action.payload)
+            state.collections.set(action.payload[0].id, action.payload)
         },
-        delete: (
+        deletePosition: (
             state,
             action: PayloadAction<{ position: WardrobeType; id: number }>
         ) => {
@@ -60,10 +55,15 @@ const wardrobeSlice = createSlice({
             state.footer = []
         },
         clearSavedCollections: (state) => {
-            state.collections = []
+            state.collections.clear()
         },
-        hydrate: (state, action) => {
-            state.collections = action.payload
+        deleteCollectionById: (state, action: PayloadAction<number>) => {
+            state.collections.delete(action.payload)
+        },
+        hydrate: (state, action: PayloadAction<[IWardrobeContent[]]>) => {
+            action.payload.forEach((collection) => {
+                state.collections.set(collection[0].id, collection)
+            })
         },
     },
 })

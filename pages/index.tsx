@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Main } from '../ui/pages'
+import { Wardrobe } from '../ui/pages'
 
 export default function HomePage() {
     return (
@@ -11,7 +11,7 @@ export default function HomePage() {
                     content="width=device-width, initial-scale=1, maximum-scale=1"
                 />
             </Head>
-            <Main />
+            <Wardrobe />
         </>
     )
 }

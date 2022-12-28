@@ -2,12 +2,9 @@ import React, { memo } from 'react'
 import { AnimatePresence } from 'framer-motion'
 
 import { Empty } from '@/components/empty'
-import {
-    GarmentsByPosition,
-    IWardrobeWithPosition,
-} from '@/components/garments/atoms/garments-list'
-import { useGarments } from './hooks'
-import { WrapperGarments } from './styled'
+import { WardrobeList, IWardrobeWithPosition } from './atoms/wardrobe-list'
+import { useWardrobe } from './hooks'
+import { WrapperWardrobe } from './styled'
 
 const getContent = (
     isEmpty: boolean,
@@ -20,16 +17,16 @@ const getContent = (
     return (
         <AnimatePresence>
             {wardrobeList.map((list, index) => (
-                <GarmentsByPosition key={index} list={list} />
+                <WardrobeList key={index} list={list} />
             ))}
         </AnimatePresence>
     )
 }
 
-export const Garments = memo(() => {
-    const { wardrobeList, isEmpty } = useGarments()
+export const Wardrobe = memo(() => {
+    const { wardrobeList, isEmpty } = useWardrobe()
 
     return (
-        <WrapperGarments>{getContent(isEmpty, wardrobeList)}</WrapperGarments>
+        <WrapperWardrobe>{getContent(isEmpty, wardrobeList)}</WrapperWardrobe>
     )
 })

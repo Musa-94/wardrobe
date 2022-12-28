@@ -6,6 +6,7 @@ import { wardrobeActions } from '@/stores/wardrobe'
 import { WardrobeType } from '@/stores/wardrobe/types'
 import { config } from '@/config/index'
 import { useRouter } from 'next/router'
+import { useMessageContext } from '@/contexts/message'
 
 export const usePreview = () => {
     const dispatch = useDispatch()
@@ -28,6 +29,7 @@ export const usePreview = () => {
 export const useHandleSelect = (image: string = '') => {
     const router = useRouter()
     const dispatch = useDispatch()
+    const { onMessage } = useMessageContext()
     const [select, setSelect] = useState<string>('')
 
     const onSelect = (value: string): void => {
@@ -35,6 +37,14 @@ export const useHandleSelect = (image: string = '') => {
     }
 
     const onSave = async () => {
+        if (!select) {
+            onMessage({
+                type: 'error',
+                content: 'Please select a position',
+            })
+            return
+        }
+
         dispatch(
             wardrobeActions.setWardrobeData({
                 wardrobeType: select as WardrobeType,

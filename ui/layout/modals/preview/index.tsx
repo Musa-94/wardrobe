@@ -1,6 +1,11 @@
 import { useHandleSelect, usePreview } from './hooks'
 import Image from 'next/image'
-import { PositionContainer, PreviewContent, SelectAntd } from './styled'
+import {
+    PositionContainer,
+    PreviewContent,
+    RequiredSymbol,
+    SelectAntd,
+} from './styled'
 import { Modal } from '@/components/modal'
 
 export const Preview = () => {
@@ -30,7 +35,10 @@ export const Preview = () => {
                             height={150}
                         />
                         <PositionContainer>
-                            <span>position: </span>
+                            <span>
+                                select a position
+                                <RequiredSymbol>*</RequiredSymbol>:
+                            </span>
                         </PositionContainer>
                     </>
                 ) : null}

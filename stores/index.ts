@@ -9,7 +9,10 @@ export const store = configureStore({
         modals: modalsReducer,
         wardrobe: wardrobeReducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
     devTools: process.env.NODE_ENV !== 'production',
 })
 

@@ -1,3 +1,3 @@
-export enum WebStorage {
+export enum LocalStorageKeys {
     COLLECTIONS = 'collections',
 }

@@ -1,5 +1,5 @@
 import { webStorage } from '@/utils/web-storage/web-storage'
-import { WebStorage } from '@/constants/web-storage/web-storage'
+import { LocalStorageKeys } from '@/constants/web-storage/local-storage-keys'
 import { useDispatch } from 'react-redux'
 import { wardrobeActions } from '@/stores/wardrobe'
 import { useMessageContext } from '@/contexts/message'
@@ -15,7 +15,7 @@ export const useSettings = () => {
     )
 
     const onCleanCollections = () => {
-        webStorage.removeLocalStorage(WebStorage.COLLECTIONS)
+        webStorage.removeLocalStorage(LocalStorageKeys.COLLECTIONS)
 
         dispatch(wardrobeActions.clearSavedCollections())
 

@@ -1,1 +1,1 @@
-export * from './web-storage/web-storage'
+export * from './web-storage/local-storage-keys'

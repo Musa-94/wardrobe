@@ -10,6 +10,7 @@ import {
     WrapperBottomNavigation,
     LeftBlockLinks,
     RightBlockLinks,
+    Stub,
 } from './styled'
 import { Icon } from '@/components/icon'
 
@@ -25,13 +26,11 @@ export const BottomNavigation = () => {
     return (
         <WrapperBottomNavigation>
             <LeftBlockLinks>
-                <NavLink href="/settings" aria-label="settings web site">
+                <NavLink href="/" aria-label="home">
                     <Icon
-                        name="Settings"
+                        name="Wardrobe"
                         size={30}
-                        color={
-                            activePage === 'settings' ? '#ff5454' : normalColor
-                        }
+                        color={activePage === '/' ? '#ff5454' : normalColor}
                     />
                 </NavLink>
                 <NavLink
@@ -49,6 +48,7 @@ export const BottomNavigation = () => {
                     />
                 </NavLink>
             </LeftBlockLinks>
+            <Stub />
 
             <LabelHiddenInput htmlFor="fileLoad">
                 <HiddenInputFile
@@ -70,11 +70,13 @@ export const BottomNavigation = () => {
             </LabelHiddenInput>
 
             <RightBlockLinks>
-                <NavLink href="/" aria-label="home">
+                <NavLink href="/settings" aria-label="settings web site">
                     <Icon
-                        name="Wardrobe"
+                        name="Settings"
                         size={30}
-                        color={activePage === '/' ? '#ff5454' : normalColor}
+                        color={
+                            activePage === 'settings' ? '#ff5454' : normalColor
+                        }
                     />
                 </NavLink>
             </RightBlockLinks>

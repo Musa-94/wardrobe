@@ -17,11 +17,11 @@ const variants = {
     exit: { opacity: 0, scale: 0.5 },
 }
 
-export const useGarmentsList = () => {
+export const useWardrobeList = () => {
     const dispatch = useDispatch()
 
     const onDelete = (position: WardrobeType, id: number) => {
-        dispatch(wardrobeActions.delete({ position, id }))
+        dispatch(wardrobeActions.deletePosition({ position, id }))
     }
 
     return {
