@@ -18,8 +18,25 @@ export const useHeader = () => {
         const [middle] = state.wardrobe.middle
         const [footer] = state.wardrobe.footer
 
+        const collection = [top, tors, middle, footer].filter((dress) => dress)
+
+        const fillCollection = (count: number) => {
+            let i = 0
+            const temp = [...collection]
+
+            while (i < count) {
+                temp.push({ id: 0, name: 'name', image: '' })
+                i = i + 1
+            }
+
+            return temp
+        }
+
         return {
-            collection: [top, tors, middle, footer],
+            collection:
+                collection.length < 4
+                    ? fillCollection(4 - collection.length)
+                    : collection,
             isComplete:
                 [top, tors, middle, footer].filter((dress) => dress).length > 1,
         }
@@ -46,6 +63,8 @@ export const useHeader = () => {
                 'Ваша коллекция не сохранится в Базу данных и после перезагрузки страницы, всё удалится'
             )
         }
+
+        console.log('collection', collection)
 
         dispatch(wardrobeActions.saveCollections(collection))
 

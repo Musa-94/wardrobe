@@ -7,6 +7,7 @@ export const PreviewContent = styled.div`
     justify-content: center;
     align-items: center;
     background-color: ${({ theme }) => theme.common.backgroundNav};
+    height: 350px;
 `
 export const PositionContainer = styled.div`
     height: 40px;
@@ -18,8 +19,9 @@ export const PositionContainer = styled.div`
 `
 export const SelectAntd = styled(Select)`
     width: 120px;
-    color: ${({ theme }) => theme.common.colorFonts};
+    color: ${({ theme }) => theme.modal.selectColor};
     background-color: ${({ theme }) => theme.common.backgroundNav};
+    margin-top: 35px;
 `
 export const RequiredSymbol = styled.strong`
     color: red;

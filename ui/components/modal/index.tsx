@@ -5,6 +5,7 @@ import { ModalProps } from 'antd'
 interface IModal extends ModalProps {
     open: boolean
     title: string
+    height?: number
     onCancel?: () => void
     children: ReactNode
     onConfirm?: () => void

@@ -10,6 +10,7 @@ export const dark = {
         backgroundAdd: '#FF5454',
     },
     modal: {
+        selectColor: '#202029',
         backgroundContainer: '#DEEBFB',
         close: '#FF5454',
         closeHover: '#FF5454',

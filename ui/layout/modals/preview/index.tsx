@@ -7,6 +7,7 @@ import {
     SelectAntd,
 } from './styled'
 import { Modal } from '@/components/modal'
+import { Button } from '@/components/button'
 
 export const Preview = () => {
     const { open, onClose, imageData } = usePreview()
@@ -16,13 +17,32 @@ export const Preview = () => {
 
     return (
         <Modal
+            width={300}
+            height={450}
             open={open}
             title="Preview"
-            okText="Save"
             centered
-            onCancel={onClose}
-            onConfirm={onSave}
-            cancelText="Cancel"
+            footer={
+                <div
+                    style={{
+                        width: '100%',
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr',
+                    }}
+                >
+                    <Button
+                        size="middle"
+                        type="primary"
+                        danger
+                        onClick={onClose}
+                    >
+                        Cancel
+                    </Button>
+                    <Button size="middle" type="primary" onClick={onSave}>
+                        save
+                    </Button>
+                </div>
+            }
         >
             <PreviewContent>
                 {imageData?.image ? (
@@ -31,15 +51,9 @@ export const Preview = () => {
                             key={imageData.id}
                             src={imageData.image}
                             alt={imageData.name}
-                            width={150}
-                            height={150}
+                            width={200}
+                            height={250}
                         />
-                        <PositionContainer>
-                            <span>
-                                select a position
-                                <RequiredSymbol>*</RequiredSymbol>:
-                            </span>
-                        </PositionContainer>
                     </>
                 ) : null}
                 <SelectAntd
@@ -47,6 +61,7 @@ export const Preview = () => {
                     defaultValue={select}
                     // @ts-ignore
                     onChange={onSelect}
+                    placeholder="Select the position"
                 />
             </PreviewContent>
         </Modal>
