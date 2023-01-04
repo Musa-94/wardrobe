@@ -43,6 +43,10 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta name="description" content="wardrobe" />
                     <link rel="icon" href="/favicon.ico" />
+                    <meta
+                        name="google-site-verification"
+                        content="bE8mJibc9AOByiBBXDg6_D2lCrQ62fPlrWAcXXI6e00"
+                    />
                 </Head>
                 <body>
                     <Main />
